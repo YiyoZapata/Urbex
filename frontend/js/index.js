@@ -9,7 +9,7 @@ function getSelector(){
 
     http.onreadystatechange = function(){
         if (http.readyState==4 && http.status==200){
-            document.getElementById("divSelector").innerHTML=http.responseText;
+          
         }
     }
 
@@ -39,12 +39,28 @@ function buscarPost(){
 
     http.onreadystatechange = function(){
         if (http.readyState==4 && http.status==200){
-            document.getElementById("divTaula").innerHTML=http.responseText;
+            parser = new DOMParser();
+            xmlDoc = parser.parseFromString(http.response,"text/xml");
+            pintarListaLugares(xmlDoc);
         }
     }
 
-    http.open("GET","http://localhost:8080/Urbex/PostServlet="+document.getElementById("selector").value, true);
+    http.open("GET","http://localhost:8080/Urbex/PostServlet", true);
     http.send();
+}
+
+function eliminarUsuario(){
+    var http;
+    http = new XMLHttpRequest;
+
+    http.onreadystatechange = function(){
+        if (http.readyState==4 && http.status==200){
+        }
+
+    }
+    http.open("POST","http://localhost:8080/Urbex/EliminarUsuario", true);
+    http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    http.send("usuario="+document.getElementById("usuario").value);
 }
 
 //Funcion que envia el usuario a la base de datos y los guarda
@@ -92,13 +108,13 @@ function funcionesRegistro(){
 }
 
 /*SUBIR PUBLICACIÓN*/
-function subirLugar(){
+function subirPost(){
     var http;
     http = new XMLHttpRequest;
     
     http.onreadystatechange = function(){
         if (http.readyState==4 && http.status==200){
-            getSelector();
+           
         }
     }
     http.open("POST","http://localhost:8080/Urbex/PostServlet", true);
@@ -108,6 +124,19 @@ function subirLugar(){
     
     alert(document.getElementById("titulo").value);
 
+}
+
+function eliminarPost(){
+    var http;
+    http = new XMLHttpRequest;
+
+    http.onreadystatechange = function(){
+        if (http.readyState==4 && http.status==200){
+        }
+    }
+    http.open("POST","http://localhost:8080/Urbex/EliminarPost", true);
+    http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    http.send("id="+document.getElementById("idPost").value);
 }
 
 
@@ -157,44 +186,47 @@ const baseDeDatos = [
 //Extraer lista lugares
 
 //RENDERIZAR INDFORMACION
-function pintarListaLugares(){
+function pintarListaLugares(baseDeDatos){
     //extraer cantidad de lugares
-        console.log(Object.values(baseDeDatos))
-            baseDeDatos.forEach((baseDeDatos) => {
-                // Estructura
-                const nodo = document.createElement('div');
-                nodo.innerHTML="Object.values(baseDeDatos[i])"
+    console.log(Object.values(baseDeDatos))
+    var lugares = baseDeDatos.getElementsByTagName('tr')
+    for(var i = 1; i < lugares.length; i++) {
+        var lugar = lugares[i]
 
-                // Titulo
-                const nodoTitle = document.createElement('h5');
-                nodoTitle.classList.add('title');
-                nodoTitle.textContent = baseDeDatos.title;
+        // Estructura
+        const nodo = document.createElement('div');
+        //nodo.innerHTML="Object.values(baseDeDatos[i])"
 
-                // Id
-                const nodoId = document.createElement('h1');
-                nodoId.classList.add('id');
-                nodoId.textContent = baseDeDatos.id;
+        // Titulo
+        const nodoTitle = document.createElement('h5');
+        nodoTitle.classList.add('title');
+        nodoTitle.textContent = lugar.children[1].innerHTML ;
 
-                // Descripcion
-                const nodoDesc = document.createElement('h5');
-                nodoDesc.classList.add('description');
-                nodoDesc.textContent = baseDeDatos.description;
+        // Id
+        const nodoId = document.createElement('h1');
+        nodoId.classList.add('id');
+        nodoId.textContent = lugar.children[0].innerHTML ;
 
-                // Localizacion
-                const nodoLoc = document.createElement('h5');
-                nodoLoc.classList.add('localization');
-                nodoLoc.textContent = baseDeDatos.localization_id;
-                
-                // Insertamos
-                nodo.appendChild(nodoTitle);
-                nodo.appendChild(nodoId);
-                nodo.appendChild(nodoDesc);
-                nodo.appendChild(nodoLoc);
+        // Descripcion
+        const nodoDesc = document.createElement('h5');
+        nodoDesc.classList.add('description');
+        nodoDesc.textContent = lugar.children[2].innerHTML ;
 
-                listaLugares = document.getElementById("listaLugares");
-                listaLugares.appendChild(nodo);
-            });
+        // Localizacion
+        const nodoLoc = document.createElement('h5');
+        nodoLoc.classList.add('localization');
+        nodoLoc.textContent = lugar.children[3].innerHTML + ',' + lugar.children[4].innerHTML ;
         
+        // Insertamos
+        nodo.appendChild(nodoTitle);
+        nodo.appendChild(nodoId);
+        nodo.appendChild(nodoDesc);
+        nodo.appendChild(nodoLoc);
+
+        listaLugares = document.getElementById("listaLugares");
+        listaLugares.appendChild(nodo);
+    }
+    
  
 }
 
