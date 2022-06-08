@@ -51,15 +51,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto p-4 p-lg-0 logged">
-                <a href="../index.html" class="nav-item nav-link">Inicio</a>
-                <a href="../guias.html" class="nav-item nav-link">Guías</a>
-                <a href="mapa.html" class="nav-item nav-link active">Lista de lugares</a>
-                <a href="subirLugar.html" class="nav-item nav-link">Subir publicación</a>
+                <a href="index.html" class="nav-item nav-link">Inicio</a>
+                <a href="guias.html" class="nav-item nav-link">Guías</a>
+                <a href="mapa.html" class="nav-item nav-link">Lista de lugares</a>
+                <a href="subirPost.html" class="nav-item nav-link active">Subir publicación</a>
 
-            </div>
-
-            <div>
-                <a href="subirLugar.html" class="nav-item nav-link active">Subir publicación</a>
             </div>
 
         </div>
@@ -74,13 +70,19 @@
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a class="text-white" href="#">Inicio</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Páginas</a></li>
                     <li class="breadcrumb-item text-primary active" aria-current="page">Subir publicación</li>
                 </ol>
             </nav>
         </div>
     </div>
     <!-- Page Header End -->
+
+    
+    <br><br>
+    <button class="btn btn-primary cerrarSesion"  onclick="cerrarSesion()">Cerrar sesión</button>
+    <br><br>
+
 
       <!-- Masthead-->
       <header class="masthead">
@@ -96,7 +98,7 @@
                         <p>Titulo <input type="text" id="titulo" class="form-control" autofocus placeholder="Titulo" required></p>
 
                         <!--Descripcion-->
-                        <p>Descripcion <input type="text" size="32" class="form-control" id="descripcion" placeholder="Descripción" required></p>
+                        <p>Descripcion<input type="text" size="32" class="form-control" id="descripcion" placeholder="Descripcion" required></p>
 
                         <!--Latitud-->
                         <p>Latitud <input type="text" class="form-control" id="latitud" placeholder="Latitud" required></p>

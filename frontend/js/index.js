@@ -60,7 +60,7 @@ function eliminarUsuario(){
     }
     http.open("POST","http://localhost:8080/Urbex/EliminarUsuario", true);
     http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    http.send("usuario="+document.getElementById("usuario").value);
+    http.send("users="+document.getElementById("usuario").value);
 }
 
 //Funcion que envia el usuario a la base de datos y los guarda
@@ -71,7 +71,7 @@ function enviarUsuario(){
     http.onreadystatechange = function(){
         if (http.readyState==4 && http.status==200){
             getSelector();
-            //location.replace("../html/login.html");
+            location.replace("../html/login.html");
         }
 
     }
@@ -91,12 +91,13 @@ function comprobarUsuario(){
         if (http.readyState==4 && http.status==200){
             getSelector();
             alert(http.responseText);
+            location.replace("../html/logged/mapa.html");
         }
 
     }
     http.open("POST","http://localhost:8080/Urbex/ComprobarUsuario", true);
     http.setRequestHeader("Content-type","application/x-www-form-urlencoded");
-    http.send("usuario="+document.getElementById("usuario").value+"&&contrasena="+document.getElementById("contrasena").value);
+    http.send("usuario="+document.getElementById("usuario").value+"&&contrasena="+document.getElementById("contraseña").value);
 
     
 }
@@ -114,7 +115,7 @@ function subirPost(){
     
     http.onreadystatechange = function(){
         if (http.readyState==4 && http.status==200){
-           
+            location.replace("../html/logged/mapa.html");
         }
     }
     http.open("POST","http://localhost:8080/Urbex/PostServlet", true);
@@ -123,7 +124,7 @@ function subirPost(){
     http.send("title="+document.getElementById("titulo").value+"&&description="+document.getElementById("descripcion").value+"&&lat="+document.getElementById("latitud").value+"&&lon="+document.getElementById("longitud").value);
     
     alert(document.getElementById("titulo").value);
-
+    
 }
 
 function eliminarPost(){

@@ -92,3 +92,37 @@ create table comments(
 
 insert into roles(name) values('admin');
 insert into users(username,email,contrasena) values('pep','assd@swdw',1515);
+
+delimiter $$ 
+create trigger contadorUsers before insert on users for each row
+begin 
+	declare numUsers int;
+    select count(*) 
+    into numUsers 
+    from users;
+    
+    if numUsers < 5 then
+		select "Hay menos de 5 usuarios";
+		else 
+		select "Hay 5 usuarios o más";
+    end if;
+end $$
+
+create trigger idFijo before update on users for each row
+begin 
+	if new.id is not null then 
+    signal sqlstate '45000' set message_text = "El id se genera automáticamente y no se puede modificar.";
+    end if;
+end $$
+
+create trigger usuarioMinimo before delete on users for each row
+begin 
+	declare numUsers int;
+    select count(*) 
+    into numUsers 
+    from users;
+    
+    if numUsers = 1 then 
+		signal sqlstate '45000' set message_text = "No se puede eliminar el último usuario";
+	end if;
+end $$

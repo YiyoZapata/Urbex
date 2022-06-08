@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Urbex</title>
+     <title>Urbex </title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="../img/favicon.ico" rel="icon">
+    <link href="../../img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +21,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="../lib/animate/animate.min.css" rel="stylesheet">
-    <link href="../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../../lib/animate/animate.min.css" rel="stylesheet">
+    <link href="../../lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="../css/style.css" rel="stylesheet">
+    <link href="../../css/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -51,10 +51,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto p-4 p-lg-0">
-                <a href="index.html" class="nav-item nav-link">Inicio</a>
+                <a href="index.html" class="nav-item nav-link active">Inicio</a>
                 <a href="guias.html" class="nav-item nav-link">Guías</a>
-                <a href="login.html" class="nav-item nav-link">Iniciar sesión</a>
-                <a href="registro.html" class="nav-item nav-link active">Registrarse</a>
+                <a href="mapa.html" class="nav-item nav-link">Lista de lugares</a>
+                <a href="subirPost.html" class="nav-item nav-link">Subir publicación</a>
                 </div>
             </div>
             <div class=" d-none d-lg-flex">
@@ -63,60 +63,60 @@
             </div>
         </div>
     </nav>
+    <!-- Navbar End -->
+
+
 
 
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-6 wow fadeIn" data-wow-delay="0.1s">
         <div class="container text-center pt-5 pb-3">
-            <h1 class="display-4 text-white animated slideInDown mb-3">Registrarse</h1>
+            <h1 class="display-4 text-white animated slideInDown mb-3">Inicio</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Inicio</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">Registrarse</li>
                 </ol>
             </nav>
         </div>
     </div>
     <!-- Page Header End -->
 
-      <!-- Masthead-->
-      <header class="masthead">
-        <div class="container px-4 px-lg-5 h-100">
-            <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
-                <div class="col-lg-8 align-self-end">
-                    <h1 class="text-white font-weight-bold">Registrarse</h1>
-                </div>
-                <div class="col-lg-8 align-self-baseline">
-                    <br>
-                    <form action="" method="post" class="centrado form-control align-items-center justify-content-center text-center" id="formRegistro">
-                        <!--USUARIO-->
-                        <p>Usuario <input type="text" id="usuario" class="form-control" autofocus placeholder="Nombre de usuario" required></p>
+    <!--Inicio introduccion -->
+    <div class="container-xxl py-6">
+        <h1 class="container text-center">¿Qué debes saber sobre el Urbex?</h1>
+        <p class="container">
+            Con esta guía de iniciación queremos acercarte a lo que debes saber sobre la exploración urbana. Conoce qué es y de donde nace, quiénes lo practican y con qué finalidad, el equipo con el que debes contar para que tu exploración sea segura, las reglas del urbex y mucho más.
+        </p>
 
-                        <!--CORREO-->
-                        <p>Correo electrónico <input type="mail" class="form-control" id="email" placeholder="Correo" required></p>
+        <p  class="container">
+            Tanto si no conoces el urbex como si estás empezando a practicarlo, para ser un Explorador Urbano solo necesitas: un lugar abandonado, tu espíritu explorador y esta guía. Así que, ¡adelante!
+        </p>
+    </div>
+     <!-- Final introduccion--> 
+     
 
-                        <!--CONTRASEÑA-->
-                        <p>Contraseña <input type="password" class="form-control" id="contraseña1" placeholder="Contraseña" required></p>
+     <!--Listado normas-->
+        <div class="container text-center">
+               <li>
+                   <h1>¿Qué es Urbex?</h1>
+                   <p>La palabra Urbex proviene del término inglés «Urban Exploration», traduciéndolo a nuestro idioma es lo que conocemos por Exploración Urbana.
 
-                        <!--REPETIR CONTRASEÑA-->
-                        <p>Repetir contraseña <input type="password" class="form-control" id="contraseña2" placeholder="Repite la contraseña" required >
-                        <br>
-
-                        <!--BOTONES ACEPTAR Y BORRAR-->
-                        <button type="button" onclick="funcionesRegistro()" class="btn btn-primary">Confirmar</button>
-                        <button type="reset"  class="btn btn-primary">Borrar</button>
-                        <br>
-                        <a href="login.html" class="">Ya tengo cuenta</a>
-
-                        <div id="container"></div>
+                    Consiste en explorar lugares abandonados, zonas industriales, edificios en construcción o sitios que tienen un acceso restringido al público en general.
                 
-                    </form>
-                </div>
-            </div>
-        </div>
-    </header>
+                    Si estás leyendo esto, probablemente el Urbex te guste o te despierte curiosidad, lo que significa que tienes alma de Explorador Urbano, que así es como se nos denomina a los que practicamos esta afición.
 
-    <br><br>
+                    Para realizar Urbex no es necesario cumplir ningún requisito, basta con tener espíritu aventurero, ganas de mancharte un poco de polvo, y sobretodo saber apreciar la magia de estos lugares.
+                </p>
+               </li>
+            </div>
+
+    <!--Fin normas-->
+
+     
+     <br><br><br>
+
+
+
+  
 
     <!-- Copyright Start -->
     <div class="container-fluid copyright text-light py-4 wow fadeIn" data-wow-delay="0.1s">
@@ -146,8 +146,7 @@
     <script src="../lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="../js/main.js"></script>
-    <script src="../js/index.js"></script>
+    <script src="../../js/main.js"></script>
 </body>
 
 </html>
